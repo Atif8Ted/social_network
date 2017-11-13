@@ -1,6 +1,7 @@
 from peewee import *
 import datetime
-from flask.ext.login import UserMixin
+from flask.ext.login import UserMixin #for login
+from flask.ext.bcrypt import generate_password_hash #for bcrypt hash passwords
 
 DATABASE=SqliteDatabase('socila.db')
 class User(UserMixin,Model)
@@ -13,5 +14,5 @@ class User(UserMixin,Model)
     class Meta:
         database=DATABASE
         order_by=('-joined_at',)
-        
+
 
